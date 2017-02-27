@@ -71,3 +71,9 @@ earth.onmouseover = function() {
 earth.onmouseout = function() {
 	canvas.style.background = "-webkit-linear-gradient(#3E0030, black, #130024)";
 }
+earth.onclick = function() {
+	earth.style.left = "700px";
+}
+earth.ondblclick = function() {
+	earth.style.left = "800px";
+}
