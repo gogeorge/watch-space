@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Watch Space</title>
+	</head>
+	<body>
+		<div id="canvas">
+			<div id="space_astronauts">
+				<span id="child_1"></span>
+			</div>
+			<div id="iss">
+				<a id="iss_latitude"></a>
+				<a id="iss_longitude"></a><br><br>
+				<a id="iss_place"></a>
+			</div>
+		</div>
+	</body>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+	<script>
+	$('script').each(function() {
+	    if ($(this).attr('src') !== 'spaceComponents.js') {
+	        var old_src = $(this).attr('src');
+	        $(this).attr('src', '');
+	        setTimeout(function(){ $(this).attr('src', old_src + '?'+new Date()); }, 250);
+	    }
+	});
+	</script>
+	<script src="watchSpace.js"></script>
+</html>

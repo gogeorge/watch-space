@@ -1,0 +1,96 @@
+
+			#space_astronauts {				
+				position: absolute;
+				width: 180px;
+				height: 400px;
+			    z-index: 16;
+			    color: white;			    
+			}
+			a {
+				margin-left: 30px;
+				text-decoration: none;
+				font-family: Helvetica;
+				font-weight: lighter;
+				font-size: 15px;
+				color: white;
+				-webkit-transition: color 2s;
+				cursor: pointer;
+			}
+			a:hover {
+				color: deepskyblue;
+			}
+			#iss {
+				position: relative;
+				top: 300px;
+				z-index: 19;
+			}
+			#background {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				z-index: -10;
+				width: 100%;
+				height: 100%;
+				background: -webkit-linear-gradient(#3E0030, black, #130024);
+			}
+			#canvas {
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				width: 1200px;
+				height: 800px;
+				background: -webkit-linear-gradient(#3E0030, black, #130024);
+				border: 2px solid deepskyblue;
+			}
+			#earth {
+				width: 400px;
+				height: 400px;
+				position: relative;
+				-webkit-transition: left 1s;
+				top: -56px;
+				left: 800px;
+				z-index: 10;
+			}
+			#space_astronauts {
+				position: relative;
+				left: 550px;
+				top: 400px;
+			}
+			#menubar {
+				float: right;
+				position: relative;
+				top: 100px;
+				left: -10px;
+				z-index: 5;
+			}
+	        #map {
+		        position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				width: 1200px;
+				height: 800px;
+				opacity: 0.8;
+				/*visibility: hidden;*/
+			}
+			@media (max-device-width: 600px) {
+				#map { display: none;}
+			}
+			@media (max-device-width: 1350px) {
+				body { 
+					zoom: 0.8;
+				}
+			}
+			@media (min-device-width: 1800px) {
+				body { 
+					zoom: 1.2;
+				}
+			}
