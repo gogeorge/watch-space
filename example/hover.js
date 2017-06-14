@@ -11,6 +11,13 @@ earth.onclick = function() {
 earth.ondblclick = function() {
 	earth.style.left = "800px";
 }
+/*earth.onclick = function() {
+	if (this.style.left = "700px") {
+		this.style.left = "800px";
+	} else {
+		this.style.left = "700px";
+	}
+}*/
 
 //google maps visible/hidden
 iss.onmouseover = function() {

@@ -1,12 +1,13 @@
 /*
 
-For the following script you need the index.html as well
-to run it
+For the following script you need the watch-space.html as well to run it
+
+This script is identical to example/spaceComponents.js
 
 */
+
 var latitude = localStorage.getItem('latitude');
 var longitude = localStorage.getItem('longitude');
-var possibleError = localStorage.getItem('possibleError');
 
 var space = new XMLHttpRequest();
 space.open("GET", "http://api.open-notify.org/astros.json", "jsonp");
@@ -47,32 +48,25 @@ function issLocation() {
 issLocation();
 
 //Ajax request to change the latitude and the longitude to a place/address
-
-
+var myJson;
 function getISSPlaceOcean() {
 	var lat = document.getElementById('iss_latitude').innerHTML;
 	var lng = document.getElementById('iss_longitude').innerHTML;
 	$.getJSON('http://api.geonames.org/oceanJSON?lat=' + lat + '&lng=' + lng + '&username=gogeorge', function(data) {
-		if (data['ocean']['name'] != null/* || data['ocean']['name'] != undefined*/) {
-			var place = data['ocean']['name'];
-			$('#iss_place').html(place);
-		} 
-		else if (data['status']['message'] != null) {
-			$('#iss_place').html('place not found');
+		myJson = data;
+		if (JSON.stringify(data).match('ocean')) {
+			$('#iss_place').html(data.ocean.name);
 		}
-		else {
+		if (!(JSON.stringify(data).match('ocean'))) {
 			function getISSPlaceLand() {
-				$.getJSON('http://api.geonames.org/findNearbyJSON?lat=' + lat + '&lng=' + lng + '&username=gogeorge', function(data) {
-					//alert('http://api.geonames.org/findNearbyJSON?lat=' + lat + '&lng=' + lng + '&username=gogeorge');				localStorage.removeItem('possibleError', possibleError);
-					var placeCountry = data['geonames']['countryName'];
-					var placeCity = data['geonames']['name'];
-					//alert(placeCountry + ', ' + placeCity);
-					$('#iss_place').html(placeCountry + ', ' + placeCity);
-					localStorage.removeItem('possibleError', possibleError);
+				var lat = document.getElementById('iss_latitude').innerHTML;
+				var lng = document.getElementById('iss_longitude').innerHTML;
+				$.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lng + '&key=AIzaSyBn42PEPZ49wSUEpge5OfwGnh7kl-q8-H0', function(data) {
+					$('#iss_place').html(data.results[2].formatted_address);
 				});
 				setTimeout(getISSPlaceLand, 2000);
 			}
-			//localStorage.setItem('possibleError', possibleError);
+			getISSPlaceLand();
 		}
 	});
 	setTimeout(getISSPlaceOcean, 2000);
