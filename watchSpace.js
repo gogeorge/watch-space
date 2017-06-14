@@ -61,7 +61,7 @@ function getISSPlaceOcean() {
 			function getISSPlaceLand() {
 				var lat = document.getElementById('iss_latitude').innerHTML;
 				var lng = document.getElementById('iss_longitude').innerHTML;
-				$.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lng + '&key=AIzaSyBn42PEPZ49wSUEpge5OfwGnh7kl-q8-H0', function(data) {
+				$.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lng + '&key=' + keyID, function(data) {
 					$('#iss_place').html(data.results[2].formatted_address);
 				});
 				setTimeout(getISSPlaceLand, 2000);
