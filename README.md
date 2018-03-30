@@ -1,3 +1,5 @@
+<p align="center"><img src="logo/horizontal.png" alt="watch-space" height="200px"></p>
+
 # Watch Space
 See who is in space right now and where the ISS is located right now
 
