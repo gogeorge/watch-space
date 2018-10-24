@@ -7,3 +7,4 @@ Watch Space uses ajax to request information and display them on an html page.
 
 The example shows how the watchSpace.js can be used to display the information neatly
 
+Thank you for the logo, @reallinfo
